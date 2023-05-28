@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # post "/blog_posts", to: "blog_posts#create", as: :blog_posts
 
   # Refactor blog_posts routes
-  resources :blog_posts
+  resources :blog_posts do
+    resource :cover_image, only: [:destroy], module: :blog_posts
+  end
 
   # Defines the root path route ("/")
   root "blog_posts#index"
